@@ -1,0 +1,828 @@
+/* Importa tipografias com mais personalidade para o site. */
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;700;800&display=swap");
+
+/* Variaveis de cores, sombras e medidas globais da identidade visual. */
+:root {
+  --bg: #fef1dd;
+  --bg-soft: #fff8ee;
+  --ink: #2e211c;
+  --ink-soft: #73564a;
+  --brand: #cd2f2a;
+  --brand-strong: #9e1f1d;
+  --accent: #f3921d;
+  --accent-strong: #d67610;
+  --leaf: #2f3238;
+  --card: rgba(255, 255, 255, 0.82);
+  --card-strong: rgba(255, 255, 255, 0.93);
+  --stroke: rgba(155, 77, 46, 0.23);
+  --shadow-soft: 0 16px 30px rgba(120, 58, 30, 0.12);
+  --shadow-strong: 0 24px 42px rgba(120, 58, 30, 0.2);
+}
+
+/* Normaliza o box model e remove margens padrao. */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+/* Aplica fundo texturizado e tipografia principal. */
+body {
+  font-family: "Manrope", "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 10% 8%, rgba(255, 255, 255, 0.9), transparent 34%),
+    radial-gradient(circle at 86% 16%, rgba(243, 146, 29, 0.22), transparent 24%),
+    radial-gradient(circle at 84% 84%, rgba(205, 47, 42, 0.16), transparent 28%),
+    repeating-linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.2) 0px,
+      rgba(255, 255, 255, 0.2) 2px,
+      transparent 2px,
+      transparent 18px
+    ),
+    linear-gradient(165deg, #fff5e4 0%, #f7dfbf 100%);
+}
+
+/* Container principal da app com limite de largura. */
+.site-wrapper {
+  width: min(1140px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1rem 0 2.2rem;
+}
+
+/* Cabecalho fixo para navegacao mais pratica em scroll. */
+.topbar {
+  position: sticky;
+  top: 0.6rem;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+  padding: 0.85rem 1rem;
+  border-radius: 18px;
+  background: linear-gradient(
+    140deg,
+    rgba(255, 252, 247, 0.95) 0%,
+    rgba(255, 238, 215, 0.92) 100%
+  );
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(6px);
+}
+
+/* Linha superior com marca e botao de menu no mobile. */
+.topbar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  gap: 0.85rem;
+}
+
+/* Bloco da marca com logotipo e nome da empresa. */
+.brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 0.75rem;
+}
+
+/* Container neutro do logo, sem moldura visual. */
+.brand-logo-wrap {
+  width: clamp(56px, 6vw, 66px);
+  height: clamp(56px, 6vw, 66px);
+  border-radius: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+  flex-shrink: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Logo em modo "contain" para manter proporcao correta. */
+.brand-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+}
+
+.brand-text {
+  display: grid;
+  align-items: start;
+  gap: 0.1rem;
+}
+
+.brand-kicker {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.74rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.brand h1 {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.22rem, 2.3vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Menu desktop com links em formato de capsula. */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-left: auto;
+}
+
+.language-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.language-select {
+  min-width: 132px;
+  padding: 0.46rem 0.62rem;
+  border: 1px solid rgba(205, 47, 42, 0.35);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.language-select:focus-visible {
+  outline: 2px solid rgba(205, 47, 42, 0.35);
+  outline-offset: 1px;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.53rem 0.9rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease;
+}
+
+.menu-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(205, 47, 42, 0.4);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.menu-link.active {
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--brand), var(--brand-strong));
+  box-shadow: 0 10px 18px rgba(158, 31, 29, 0.32);
+}
+
+/* Botao hamburguer fica visivel apenas em telas menores. */
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--stroke);
+  border-radius: 11px;
+  background: #fff8ef;
+  cursor: pointer;
+  transition: border-color 220ms ease, background-color 220ms ease;
+}
+
+.menu-toggle:hover {
+  border-color: rgba(120, 74, 35, 0.45);
+  background: #fff2df;
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid rgba(182, 85, 26, 0.45);
+  outline-offset: 2px;
+}
+
+/* Classe utilitaria para texto visivel apenas para leitor de ecra. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Estrutura do icone hamburguer e animacao das linhas. */
+.menu-toggle-icon {
+  display: grid;
+  gap: 4px;
+  width: 18px;
+}
+
+.menu-toggle-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 99px;
+  background: var(--ink);
+  transition: transform 280ms ease, opacity 220ms ease;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Area principal onde as paginas sao renderizadas. */
+.page-container {
+  margin-top: 1rem;
+}
+
+/* Estrutura da home para separar hero e indicadores. */
+.home-layout {
+  display: grid;
+  gap: 0.95rem;
+}
+
+/* Hero principal com duas colunas em desktop. */
+.hero {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 0.95rem;
+}
+
+.hero > * {
+  min-width: 0;
+}
+
+/* Cartoes base usados em varias secoes do site. */
+.hero-content,
+.hero-card,
+.content-page,
+.panel,
+.product-card,
+.metric-card {
+  border: 1px solid var(--stroke);
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+  background: var(--card);
+}
+
+/* Area principal do hero com destaque visual e brilho local. */
+.hero-content {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.1rem, 2.8vw, 2rem);
+  background: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(255, 243, 225, 0.9) 100%
+  );
+}
+
+.hero-content::after {
+  content: "";
+  position: absolute;
+  right: -28px;
+  top: -26px;
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(243, 146, 29, 0.32), transparent 68%);
+  pointer-events: none;
+}
+
+.section-tag {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.hero-content h2,
+.content-page h2 {
+  margin: 0.35rem 0 0.65rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.hero-content h2 {
+  font-size: clamp(1.5rem, 4vw, 2.45rem);
+}
+
+.hero-content h2 span {
+  color: var(--accent-strong);
+}
+
+.hero-content p {
+  margin: 0;
+  color: #433022;
+  line-height: 1.65;
+}
+
+.hero-gallery {
+  margin-top: 0.95rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.62rem;
+}
+
+.hero-gallery-image {
+  width: 100%;
+  height: clamp(130px, 20vw, 185px);
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(205, 47, 42, 0.2);
+  box-shadow: 0 12px 22px rgba(158, 31, 29, 0.15);
+}
+
+.cta-row {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.62rem;
+}
+
+/* Estilo base dos botoes usados em todo o site. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.66rem 1.02rem;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 0.93rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(145deg, var(--accent), var(--brand));
+  box-shadow: 0 10px 20px rgba(171, 52, 22, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.07);
+}
+
+.btn-outline {
+  color: var(--brand);
+  border-color: rgba(205, 47, 42, 0.35);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.btn-outline:hover {
+  transform: translateY(-2px);
+}
+
+/* Cartao lateral da home com visual ligeiramente mais denso. */
+.hero-card {
+  padding: 1.05rem;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 251, 245, 0.96) 0%,
+    rgba(255, 236, 211, 0.9) 100%
+  );
+}
+
+.hero-card-banner {
+  display: flex;
+  padding: 0.8rem;
+}
+
+.mini-badge {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(145deg, var(--leaf), #2e5a2d);
+  border-radius: 999px;
+  padding: 0.34rem 0.58rem;
+}
+
+.hero-card h3 {
+  margin: 0.8rem 0 0.55rem;
+  font-family: "Fraunces", Georgia, serif;
+}
+
+.hero-card ul {
+  margin: 0;
+  padding-left: 1.12rem;
+  display: grid;
+  gap: 0.48rem;
+}
+
+.hero-banner {
+  width: 100%;
+  margin: 0;
+  padding: 0.45rem;
+  overflow: hidden;
+  border: 1px solid rgba(205, 47, 42, 0.26);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.hero-banner-image {
+  width: 100%;
+  height: clamp(260px, 45vw, 430px);
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(205, 47, 42, 0.2);
+  transition: opacity 220ms ease;
+}
+
+/* Grade de indicadores da home para reforcar percepcao de valor. */
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.metric-card {
+  padding: 1rem;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 243, 228, 0.9) 100%
+  );
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.metric-image {
+  width: 100%;
+  height: 175px;
+  margin-bottom: 0.7rem;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(205, 47, 42, 0.2);
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+}
+
+.metric-label {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.metric-card h3 {
+  margin: 0.4rem 0 0.45rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.05rem;
+}
+
+.metric-card p {
+  margin: 0;
+  line-height: 1.55;
+  color: #4d3a2c;
+}
+
+/* Estilo base das paginas internas. */
+.content-page {
+  padding: clamp(1rem, 2.6vw, 1.8rem);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.91) 0%,
+    rgba(255, 245, 230, 0.87) 100%
+  );
+}
+
+.content-page h2 {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+}
+
+.section-intro {
+  margin: 0 0 1rem;
+  color: #4c3a2c;
+  line-height: 1.6;
+}
+
+/* Grade de duas colunas para sobre e contacto. */
+.grid-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.panel {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.panel h3,
+.product-card h3 {
+  margin: 0 0 0.5rem;
+  font-family: "Fraunces", Georgia, serif;
+}
+
+.panel p,
+.product-card p {
+  margin: 0;
+  color: #4f3d2f;
+  line-height: 1.6;
+}
+
+/* Grade de catalogo de produtos. */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.product-card {
+  padding: 1.1rem;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 242, 224, 0.9) 100%
+  );
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.product-image {
+  width: 100%;
+  height: 170px;
+  margin-bottom: 0.7rem;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(120, 74, 35, 0.2);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+}
+
+.highlight {
+  margin-top: 0.8rem !important;
+  color: var(--brand);
+  font-weight: 800;
+}
+
+.packaging {
+  margin-top: 0.35rem !important;
+  color: var(--ink-soft);
+}
+
+/* Formulario com campos amplos e foco bem visivel. */
+.contact-form {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.contact-form label {
+  font-size: 0.9rem;
+  color: #544232;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.68rem 0.72rem;
+  border: 1px solid rgba(135, 53, 13, 0.3);
+  border-radius: 11px;
+  background: #fffdfa;
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid rgba(182, 85, 26, 0.32);
+  border-color: rgba(182, 85, 26, 0.7);
+}
+
+/* Rodape final da pagina. */
+.footer {
+  margin-top: 1.3rem;
+  text-align: center;
+  color: #654638;
+  font-size: 0.88rem;
+}
+
+.footer p {
+  margin: 0.2rem 0;
+}
+
+/* Animacao leve de entrada dos blocos. */
+.reveal {
+  animation: revealUp 640ms ease both;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Breakpoint para tablets em orientacao retrato. */
+@media (max-width: 980px) {
+  .topbar {
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .hero,
+  .grid-two,
+  .product-grid,
+  .hero-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card,
+  .panel,
+  .product-card {
+    padding: 0.95rem;
+  }
+}
+
+/* Breakpoint mobile com menu hamburguer ativo. */
+@media (max-width: 760px) {
+  .site-wrapper {
+    width: min(1140px, calc(100% - 1.2rem));
+    padding-top: 0.75rem;
+  }
+
+  .topbar {
+    top: 0.35rem;
+    border-radius: 15px;
+    padding: 0.78rem;
+  }
+
+  .topbar-head {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .brand-logo-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 0;
+  }
+
+  .brand {
+    grid-column: 2;
+    justify-self: center;
+  }
+
+  .brand-text {
+    text-align: center;
+    align-items: center;
+  }
+
+  .brand h1 {
+    font-size: 1.2rem;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    grid-column: 3;
+    justify-self: end;
+  }
+
+  .menu {
+    display: none;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+  }
+
+  .menu.menu-open {
+    display: grid;
+    animation: menuDrop 240ms ease both;
+  }
+
+  .menu-link {
+    text-align: center;
+    border-color: var(--stroke);
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .language-switch {
+    width: 100%;
+    margin-left: 0;
+    justify-content: space-between;
+  }
+
+  .language-select {
+    min-width: 0;
+    width: min(210px, 100%);
+  }
+
+  .cta-row .btn,
+  .contact-form .btn {
+    width: 100%;
+  }
+
+  .hero-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-gallery-image {
+    height: 170px;
+  }
+
+  .hero-banner-image {
+    height: clamp(190px, 56vw, 280px);
+  }
+}
+
+/* Ajustes finais para telemoveis pequenos. */
+@media (max-width: 540px) {
+  .site-wrapper {
+    width: min(1140px, calc(100% - 0.9rem));
+  }
+
+  .menu.menu-open {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content,
+  .hero-card,
+  .content-page {
+    border-radius: 16px;
+  }
+
+  .hero-content,
+  .content-page {
+    padding: 0.95rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animacao de abertura do menu mobile. */
+@keyframes menuDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
