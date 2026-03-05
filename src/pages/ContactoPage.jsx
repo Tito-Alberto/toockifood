@@ -1,8 +1,16 @@
 ﻿// Página de contacto para clientes e parceiros comerciais.
+import { useState } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function ContactoPage() {
   const { t } = useLanguage();
+  const [pedidoEnviado, setPedidoEnviado] = useState(false);
+
+  function handleSubmit(evento) {
+    evento.preventDefault();
+    setPedidoEnviado(true);
+    evento.currentTarget.reset();
+  }
 
   return (
     <section className="content-page reveal">
@@ -26,7 +34,7 @@ function ContactoPage() {
           </p>
         </article>
 
-        <form className="panel contact-form">
+        <form className="panel contact-form" onSubmit={handleSubmit}>
           <h3>{t("contact.formTitle")}</h3>
           <label htmlFor="nome">{t("contact.nameLabel")}</label>
           <input
@@ -34,6 +42,7 @@ function ContactoPage() {
             name="nome"
             type="text"
             placeholder={t("contact.namePlaceholder")}
+            onChange={() => setPedidoEnviado(false)}
           />
 
           <label htmlFor="email">{t("contact.emailLabel")}</label>
@@ -42,6 +51,7 @@ function ContactoPage() {
             name="email"
             type="email"
             placeholder={t("contact.emailPlaceholder")}
+            onChange={() => setPedidoEnviado(false)}
           />
 
           <label htmlFor="mensagem">{t("contact.messageLabel")}</label>
@@ -50,11 +60,18 @@ function ContactoPage() {
             name="mensagem"
             rows="4"
             placeholder={t("contact.messagePlaceholder")}
+            onChange={() => setPedidoEnviado(false)}
           />
 
-          <button className="btn btn-primary" type="button">
+          <button className="btn btn-primary" type="submit">
             {t("contact.sendButton")}
           </button>
+
+          {pedidoEnviado ? (
+            <p className="form-success" role="status" aria-live="polite">
+              {t("contact.successMessage")}
+            </p>
+          ) : null}
         </form>
       </div>
     </section>

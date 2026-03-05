@@ -129,6 +129,7 @@ const translations = {
       messageLabel: "Mensagem",
       messagePlaceholder: "Escreva a sua mensagem",
       sendButton: "Enviar",
+      successMessage: "Seu pedido foi enviado com sucesso.",
     },
   },
   en: {
@@ -255,6 +256,7 @@ const translations = {
       messageLabel: "Message",
       messagePlaceholder: "Write your message",
       sendButton: "Send",
+      successMessage: "Your request was sent successfully.",
     },
   },
   es: {
@@ -381,6 +383,7 @@ const translations = {
       messageLabel: "Mensaje",
       messagePlaceholder: "Escriba su mensaje",
       sendButton: "Enviar",
+      successMessage: "Su solicitud fue enviada con éxito.",
     },
   },
 };

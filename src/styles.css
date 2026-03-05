@@ -651,6 +651,18 @@ body {
   border-color: rgba(182, 85, 26, 0.7);
 }
 
+.form-success {
+  margin: 0.2rem 0 0;
+  padding: 0.62rem 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(40, 120, 72, 0.35);
+  background: rgba(218, 249, 229, 0.9);
+  color: #1e5f38;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 /* Rodape final da pagina. */
 .footer {
   margin-top: auto;
